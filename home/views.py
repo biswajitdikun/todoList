@@ -7,11 +7,13 @@ def home(request):
     if request.method == "POST":
         title = request.POST['title']
         desc = request.POST['desc']
-        print(title,desc)
+        # print(title,desc)
         ins = Task(taskTitle = title, taskDesc = desc)
         ins.save()
         context = {'success':True}
     return render(request,'index.html',context)
 
 def tasks(request):
-    return render(request,'tasks.html')
+    allTasks = Task.objects.all()
+    context = {'allTasks':allTasks}
+    return render(request,'tasks.html',context)
