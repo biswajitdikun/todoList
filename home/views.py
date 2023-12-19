@@ -3,7 +3,7 @@ from home.models import Task
 # Create your views here.
 
 def home(request):
-    context = {'success':False}
+    context = {'success':False,'name':'Biswa'}
     if request.method == "POST":
         title = request.POST['title']
         desc = request.POST['desc']

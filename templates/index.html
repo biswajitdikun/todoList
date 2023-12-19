@@ -34,15 +34,18 @@
     </div>
   </nav>
 
-  Status is {{success}}
-
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Hello!</strong> Form submitted: {{success}}
+  
+{% if success %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your Tasks has been added to the list: {{success}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-
+  {% endif %}
 
   <div class="container my-3">
+    {% comment %} 
+    <h2 class="text-ceter">Welcome {{name}} to ToDo List - Add a Task</h2>
+     {% endcomment %}
     <h2 class="text-ceter">Welcome to ToDo List - Add a Task</h2>
     <form action="/" method="post">
       {% csrf_token %}
